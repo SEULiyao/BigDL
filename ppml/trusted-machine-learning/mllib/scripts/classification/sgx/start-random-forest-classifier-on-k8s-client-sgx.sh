@@ -27,9 +27,9 @@ bash bigdl-ppml-submit.sh \
     --executor-memory 32g \
     --executor-cores 8 \
     --num-executors 2 \
-    --conf spark.kubernetes.sgx.enabled=true \
-    --conf spark.kubernetes.sgx.executor.jvm.mem=3g \
-    --conf spark.kubernetes.sgx.driver.jvm.mem=1g \
+    --sgx-enabled true \
+    --sgx-driver-jvm-memory 1g \
+    --sgx-executor-jvm-memory 3g \
     --conf spark.driver.host=$LOCAL_IP \
     --conf spark.driver.port=54321 \
     --conf spark.driver.memory=8g \
