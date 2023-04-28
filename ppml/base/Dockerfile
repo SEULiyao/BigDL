@@ -131,7 +131,10 @@ ADD ./attestation.sh /ppml
 ADD ./encrypted-fsd.sh /ppml
 
 RUN cd /ppml && \
-    bash ./download_jars.sh
+    bash ./download_jars.sh && \
+    ls && \
+    cd /ppml/jars && \
+    ls
 
 ENV PYTHONPATH   /usr/lib/python3.8:/usr/lib/python3.8/lib-dynload:/usr/local/lib/python3.8/dist-packages:/usr/lib/python3/dist-packages:/ppml/bigdl-ppml/src
 WORKDIR /ppml
