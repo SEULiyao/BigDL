@@ -270,17 +270,7 @@ object PPMLContext{
           ppmlSc.keyLoaderManagement
                 .addKeyLoader(primaryKeyName,
                               KeyLoader(false, "", null, primaryKeyPlainText))
-        } else {
-          Log4Error.invalidInputError(
-            conf.contains(s"spark.bigdl.primaryKey.$primaryKeyName.material"),
-                          s"spark.bigdl.primaryKey.$primaryKeyName.material not found.")
-            val primaryKeyMaterial = conf.get(
-              s"spark.bigdl.primaryKey.$primaryKeyName.material")
-            val kms = loadKmsOfPrimaryKey(conf, primaryKeyName)
-            ppmlSc.keyLoaderManagement
-                  .addKeyLoader(primaryKeyName,
-                                KeyLoader(true, primaryKeyMaterial, kms, ""))
-         }
+        } 
       }
     }
     if (ppmlSc.keyLoaderManagement.count == 1) ppmlSc.defaultKey = primaryKeyNames(0)
